@@ -9,6 +9,11 @@ a {
     color: inherit;
 }
 
+a::after {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
 .link_logo {
     display: inline-block;
 }
