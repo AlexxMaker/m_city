@@ -54,11 +54,6 @@ class Stripes extends Component {
                         delay: stripe.delay,
                         duration: 300,
                         ease: easePolyOut
-                    },
-                    events: {
-                        end(){
-                            console.log("SOSAT")
-                        }
                     }
                 }}
            >
