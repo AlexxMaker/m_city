@@ -8,6 +8,7 @@ const Routes = (props) => {
       <Layout>
         <Switch>
           <Route exact component={Home} path="/"/>
+          {/* <Route exact component={Matches} path="/matches"/> */}
         </Switch>
       </Layout>
   );
