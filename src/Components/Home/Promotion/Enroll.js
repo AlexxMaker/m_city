@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import FormField from '../../UI/FormFields';
-import { validate } from '../../UI/misc'
+import { validate } from '../../UI/misc';
+import { firebasePromotions } from '../../../firebase';
 
 
 class Enroll extends Component {
@@ -27,7 +28,7 @@ class Enroll extends Component {
         }
      }
 
-     resetFormSuccess = () => {
+     resetFormSuccess = (type) => {
         const newFormData = {...this.state.formData}
 
         for(let key in newFormData){
@@ -39,7 +40,7 @@ class Enroll extends Component {
         this.setState({
             fromError: false,
             formData: newFormData,
-            formSuccess: 'Congratulations!'
+            formSuccess: type ? 'Congratulations' : 'Already on the database'
         })
      }
 
@@ -55,15 +56,21 @@ class Enroll extends Component {
         }
 
         if(formIsValid){
-            console.log(dataToSubmit)
-            this.resetFormSuccess()
+            firebasePromotions.orderByChild('email').equalTo(dataToSubmit.email).once("value")
+            .then((snapshot)=>{
+                if(snapshot.val() === null) {
+                    firebasePromotions.push(dataToSubmit);
+                    this.resetFormSuccess(true)
+                } else {
+                    this.resetFormSuccess(false)
+                }
+            })
+            
         } else {
             this.setState({
                 formError: true
             })
         }
-
-        
      }
 
      updateForm (element) {
@@ -112,6 +119,7 @@ class Enroll extends Component {
                             { this.state.formError ? <div className="error_label">Something is wrong, try again</div> : null}
                             <div className="success_label">{this.state.formSuccess}</div>
                             <button onClick={(event)=> this.submitForm(event)}>Enroll</button>
+                            <div className="enroll_disclaimer">Lorem ipsum bla bla dewfw we fwef ef weeffefwef  ewf  e covfefe!</div>
                         </div>
                     </form>
                 </div>
