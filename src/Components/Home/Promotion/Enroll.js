@@ -40,7 +40,7 @@ class Enroll extends Component {
         this.setState({
             fromError: false,
             formData: newFormData,
-            formSuccess: type ? 'Congratulations' : 'Already on the database'
+            formSuccess: type ? 'Congratulations! You will receive an email with details.' : 'Already on the database'
         })
      }
 
@@ -119,7 +119,7 @@ class Enroll extends Component {
                             { this.state.formError ? <div className="error_label">Something is wrong, try again</div> : null}
                             <div className="success_label">{this.state.formSuccess}</div>
                             <button onClick={(event)=> this.submitForm(event)}>Enroll</button>
-                            <div className="enroll_disclaimer">Lorem ipsum bla bla dewfw we fwef ef weeffefwef  ewf  e covfefe!</div>
+                            <div className="enroll_discl">Lorem ipsum bla bla dewfw we fwef ef weeffefwef  ewf  e covfefe!</div>
                         </div>
                     </form>
                 </div>
