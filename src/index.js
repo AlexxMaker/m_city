@@ -9,10 +9,12 @@ import { firebase } from './firebase'
 const App = (props) => {
     return (
         <BrowserRouter>
-            <Routes {...props}/>
+            <Routes {...props}/> 
         </BrowserRouter>
     )
 }
+
+//sleeeeeeeeep
 
 firebase.auth().onAuthStateChanged((user)=>{
             ReactDOM.render(<App user={user}/>, document.getElementById('root'));
