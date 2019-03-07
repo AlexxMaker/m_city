@@ -14,7 +14,8 @@ const App = (props) => {
     )
 }
 
-//sleeeeeeeeep
+//sleeeeeeeeep 
+// motoschkola ya mudak
 
 firebase.auth().onAuthStateChanged((user)=>{
             ReactDOM.render(<App user={user}/>, document.getElementById('root'));
