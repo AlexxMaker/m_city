@@ -44,9 +44,26 @@ class AddEditMatch extends Component {
                 valid: false,
                 validationMessage: '',
                 showlabel: false
-            }
+            },
+
+            resultLocal: {
+                element: 'input',
+                value: '',
+                config: {
+                    label: 'Result Local',
+                    name: 'result_local_input',
+                    type: 'text'
+                },
+                validation: {
+                    required: true
+                },
+                valid: false,
+                validationMessage: '',
+                showlabel: false
+            },
         }
      }
+
     render() {
         return (
             <AdminLayout>
@@ -62,11 +79,32 @@ class AddEditMatch extends Component {
                                 change={(element) => this.updateForm(element)}
                             />
 
-                            <FormField
-                                id={'local'}
-                                formdata={this.state.formData.local}
-                                change={(element) => this.updateForm(element)}
-                            />
+                            <div className="select_team_layout">
+                                <div className="label_inputs">Local</div>
+                                <div className="wrapper">
+                                    <div className="left">
+                                        <FormField
+                                            id={'local'}
+                                            formdata={this.state.formData.local}
+                                            change={(element) => this.updateForm(element)}
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <FormField
+                                            id={'resultLocal'}
+                                            formdata={this.state.formData.resultLocal}
+                                            change={(element) => this.updateForm(element)}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            
                         </form>
                     </div>
                 </div>
