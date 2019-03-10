@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AdminLayout from '../../../Hoc/AdminLayout';
+import FileUploader from '../../UI/fileUploader';
 
 import FormField from '../../UI/FormFields';
 import { validate } from '../../UI/misc';
@@ -83,6 +84,15 @@ class AddEditPlayers extends Component {
                 valid: false,
                 validationMessage: '',
                 showlabel: true
+            },
+
+            image:{
+                element: 'image',
+                value:'',
+                validation:{
+                    required: true
+                },
+                valid: true
             }
 
         }
@@ -142,6 +152,14 @@ class AddEditPlayers extends Component {
         }
      }
 
+     resetImage = () => {
+
+     }
+
+     storeFilename = () => {
+         
+     }
+
     render() {
         return (
             <AdminLayout>
@@ -150,6 +168,18 @@ class AddEditPlayers extends Component {
 
                     <div>
                         <form onSubmit={(event)=>this.submitForm(event)}>
+                            <FileUploader
+                                dir="players"
+                                tag={"Player Image"}
+                                defaultImg={this.state.defaultImg}
+                                defaultImgName={this.state.formData.image.value}
+                                resetImage={()=>this.resetImage()}
+                                fileName={(filename)=> this.storeFilename(filename)}
+                            />
+
+                            
+                            
+                            
                             <FormField
                                 id={'name'}
                                 formdata={this.state.formData.name}
