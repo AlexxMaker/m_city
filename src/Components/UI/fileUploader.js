@@ -37,7 +37,7 @@ class Fileuploader extends Component {
                             onUploadSuccess={ this.handleUploadSuccess }
                         />
                     </div>
-                    : null
+                    : null //ololo NLO
                 }
             </div>
         );
