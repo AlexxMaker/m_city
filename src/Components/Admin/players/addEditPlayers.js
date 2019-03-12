@@ -220,7 +220,7 @@ class AddEditPlayers extends Component {
                         </form>
                     </div>
                 </div>
-            </AdminLayout>
+            </AdminLayout> //ya korovkO!
         );
     }
 }
